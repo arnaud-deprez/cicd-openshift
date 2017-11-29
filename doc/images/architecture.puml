@@ -1,0 +1,38 @@
+@startuml
+top to bottom direction
+skinparam packageStyle rect
+
+cloud "openshift-cluster" {
+    rectangle openshift [
+        <b>Openshift project</b>
+        ====
+        - Openshift images
+        - Openshift templates
+    ]
+    rectangle my [
+        <b>My Openshift project</b>
+        ====
+        - My images
+        - My templates
+    ]
+    rectangle cicd [
+        <b>CI/CD project</b>
+        ====
+        - Jenkins
+        - Nexus
+        - SonarQube
+    ]
+    rectangle dev
+    rectangle staging
+    rectangle prod
+
+    openshift <-- cicd : use
+    my <-- cicd : use
+    cicd --> dev : build/deploy
+    cicd --> staging : promote
+    cicd --> prod : promote
+    dev -right-> staging : tag
+    staging -right-> prod : tag
+}
+
+@enduml

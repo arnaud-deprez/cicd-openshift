@@ -1,0 +1,9 @@
+[submodule "jenkins-docker-openshift"]
+	path = jenkins-docker-openshift
+	url = https://github.com/arnaud-deprez/jenkins-docker-openshift.git
+[submodule "nexus3-docker"]
+	path = nexus3-docker
+	url = https://github.com/arnaud-deprez/nexus3-docker.git
+[submodule "sonarqube-docker"]
+	path = sonarqube-docker
+	url = https://github.com/arnaud-deprez/sonarqube-docker.git
