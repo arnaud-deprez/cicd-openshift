@@ -76,3 +76,4 @@ The rest of this documentation assumes you run command in the project cicd. To e
 1. [Jenkins](https://github.com/arnaud-deprez/jenkins-docker-openshift)
 1. [Nexus 3](https://github.com/arnaud-deprez/nexus3-docker)
 1. [SonarQube](https://github.com/arnaud-deprez/sonarqube-docker)
+1. [Selenium Grid](https://github.com/arnaud-deprez/selenium-openshift-templates)
