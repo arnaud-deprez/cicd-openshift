@@ -16,6 +16,14 @@ It contains images and templates supported by RedHat.
 > The idea of this project is to mimic what is Openshift project but for our specific needs.
 It will contains base image, templates, and secrets for private registry.
 
+**Tiller project**
+> It will contain the helm server part `Tiller` to manage our release across the cluster.
+Tiller will be responsible to apply (install, upgrade or delete) a release in a namespace.
+
+**CICD project**
+> It will contain the entire CI/CD infrastructure such as `Jenkins`, `Nexus`, `Sonarqube`, a `Selenium grid` and whatever else is necessary to build, 
+test and deliver our applications and improve our code quality.
+
 **Dev project**
 > Dev project is where the released image for each cell will be pushed and tagged from each cell project
 when developer feel confident with.
@@ -57,6 +65,30 @@ To simplify this management, we can also add the ability to all service account 
 
 ```sh
 oc policy add-role-to-group system:image-puller system:serviceaccounts:project-a -n my-openshift
+```
+
+### Helm installation (Tiller project)
+
+First, you need to download and install helm client: https://github.com/kubernetes/helm/blob/master/docs/install.md
+
+Then we will install tiller in a specific project `tiller` with appropriate roles:
+
+```sh
+export TILLER_NAMESPACE=tiller
+oc new-project $TILLER_NAMESPACE
+oc create serviceaccount $TILLER_NAMESPACE -n $TILLER_NAMESPACE
+oc adm policy add-cluster-role-to-user cluster-admin -z $TILLER_NAMESPACE -n $TILLER_NAMESPACE
+helm init --service-account $TILLER_NAMESPACE
+```
+
+By giving these roles to `tiller` service account in `tiller` project, we will be able to create projects and mostly every possible resources in them from helm.
+Of course this can be more fine grained depending on your needs and your security policies.
+
+If tiller is already installed but helm client is not initialized, you can simply run the following:
+
+```sh
+export TILLER_NAMESPACE=tiller
+helm init --client-only
 ```
 
 ### CI/CD project
