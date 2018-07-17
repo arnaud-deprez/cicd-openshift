@@ -6,7 +6,7 @@ This repository contains all the components needed to setup the CI/CD infrastruc
 
 Application in Openshift will be segregated in many projects, each project is isolated from other.
 
-![CI/CD Architecture](http://www.plantuml.com/plantuml/svg/bLBBJiCm4BpxAwpUhTnHYIgL2qWKeHuH1ySsgQbVijU82F7lhDEGDY52i2Vlp7XdjFOc0O-GhI7W0mLF6m_WBPKwAW7QEvAEsWKUkQM1YoDlrHuwesYX2H76PqbNFYYN3le5c30vWOeh-a4eLb5nrw9-bD2ddYcrRkg74GxHlw9wNJNrABZ66Xj6ps9jCKXQf43PO3WCxFCiXksc_lST_LS4rF_mHkntKw65dDfkRwljpL_yxfJ3_L-wxTHxlkpttl7uc1krQ2tLsmp11s-rQsSeHf6anyuFjMRi5FsAvdGQZ-jRGFkMiRgu8TnaRMGbLJ2-c_A3DshGptgONIyXPboPoA9k3p2vZeUU_aP6oJ2Yy9-4R9IJ-BU_0000 "CI/CD Architecture")
+![CI/CD Architecture](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/arnaud-deprez/cicd-openshift/master/doc/images/architecture.puml "CI/CD Architecture")
 
 **Openshift project**
 > This is the default project that comes by default with a classic Openshift installation.
