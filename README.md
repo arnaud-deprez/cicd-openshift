@@ -78,6 +78,7 @@ export TILLER_NAMESPACE=tiller
 oc new-project $TILLER_NAMESPACE
 oc create serviceaccount $TILLER_NAMESPACE -n $TILLER_NAMESPACE
 oc adm policy add-cluster-role-to-user cluster-admin -z $TILLER_NAMESPACE -n $TILLER_NAMESPACE
+oc policy add-role-to-user edit system:serviceaccount:cicd:jenkins -n $TILLER_NAMESPACE
 helm init --service-account $TILLER_NAMESPACE
 ```
 
