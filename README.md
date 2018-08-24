@@ -1,6 +1,7 @@
 # CI/CD infrastructure setup on Openshift
 
 This repository contains all the components needed to setup the CI/CD infrastructure.
+This has been tested with [Minishift](https://github.com/minishift/minishift) and [CDK](https://developers.redhat.com/products/cdk/overview) for Rhel based images.
 
 ## CI/CD architecture in Openshift
 
