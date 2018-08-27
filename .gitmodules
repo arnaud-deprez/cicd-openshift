@@ -7,6 +7,6 @@
 [submodule "sonarqube-docker"]
 	path = sonarqube-docker
 	url = https://github.com/arnaud-deprez/sonarqube-docker.git
-[submodule "selenium-openshift-templates"]
-	path = selenium-openshift-templates
-	url = https://github.com/arnaud-deprez/selenium-openshift-templates.git
+[submodule "selenium-grid-docker"]
+	path = selenium-grid-docker
+	url = https://github.com/arnaud-deprez/selenium-grid-docker.git
