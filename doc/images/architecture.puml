@@ -19,8 +19,7 @@ cloud "openshift-cluster" {
         <b>Tiller project</b>
         ===
         - tiller server
-        - helm repository
-        - monocular
+        
     ]
     rectangle cicd [
         <b>CI/CD project</b>
@@ -28,6 +27,8 @@ cloud "openshift-cluster" {
         - Jenkins
         - Nexus
         - SonarQube
+        - Charts museum
+        - Monocular
     ]
     rectangle dev
     rectangle staging
@@ -35,11 +36,9 @@ cloud "openshift-cluster" {
 
     openshift <-- cicd : use
     my <-- cicd : use
-    cicd --> tiller : jenkins request
-    tiller --> cicd : install
-    tiller --> dev : apply
-    tiller --> staging : apply
-    tiller --> prod : apply
+    cicd --> dev : apply
+    cicd --> staging : apply
+    cicd --> prod : apply
     dev -right-> staging : tag
     staging -right-> prod : tag
 }

@@ -1,0 +1,23 @@
+fullnameOverride: "selenium"
+nameOverride: "selenium"
+
+hub:
+  ## The tag for the image
+  tag: "3.14.0-helium"
+  serviceType: "ClusterIP"
+chrome:
+  enabled: true
+  ## The tag for the image
+  tag: "3.14.0-helium"
+chromeDebug:
+  enabled: false
+  ## The tag for the image
+  tag: "3.14.0-helium"
+firefox:
+  enabled: true
+  ## The tag for the image
+  tag: "3.14.0-helium"
+firefoxDebug:
+  enabled: false
+  ## The tag for the image
+  tag: "3.14.0-helium"

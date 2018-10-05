@@ -17,13 +17,10 @@ It contains images and templates supported by RedHat.
 > The idea of this project is to mimic what is Openshift project but for our specific needs.
 It will contains base image, templates, and secrets for private registry.
 
-**Tiller project**
-> It will contain the helm server part `Tiller` to manage our release across the cluster.
-Tiller will be responsible to apply (install, upgrade or delete) a release in a namespace.
-
 **CICD project**
-> It will contain the entire CI/CD infrastructure such as `Jenkins`, `Nexus`, `Sonarqube`, a `Selenium grid` and whatever else is necessary to build, 
+> It will contain the entire CI/CD infrastructure such as `Jenkins`, `Nexus`, `Sonarqube`, a `Selenium grid`, `chartmuseum` and whatever else is necessary to build, 
 test and deliver our applications and improve our code quality.
+This will use helm without tiller by applying the result of helm template.
 
 **Dev project**
 > Dev project is where the released image for each cell will be pushed and tagged from each cell project
@@ -68,30 +65,21 @@ To simplify this management, we can also add the ability to all service account 
 oc policy add-role-to-group system:image-puller system:serviceaccounts:project-a -n my-openshift
 ```
 
-### Helm installation (Tiller project)
+### Helm installation
 
 First, you need to download and install helm client: https://github.com/kubernetes/helm/blob/master/docs/install.md
 
-Then we will install tiller in a specific project `tiller` with appropriate roles:
+Then we will initialize helm without `tiller`:
 
 ```sh
-export TILLER_NAMESPACE=tiller
-oc new-project $TILLER_NAMESPACE
-oc create serviceaccount $TILLER_NAMESPACE -n $TILLER_NAMESPACE
-oc adm policy add-cluster-role-to-user cluster-admin -z $TILLER_NAMESPACE -n $TILLER_NAMESPACE
-oc policy add-role-to-user edit system:serviceaccount:cicd:jenkins -n $TILLER_NAMESPACE
-helm init --service-account $TILLER_NAMESPACE
-```
-
-By giving these roles to `tiller` service account in `tiller` project, we will be able to create projects and mostly every possible resources in them from helm.
-Of course this can be more fine grained depending on your needs and your security policies.
-
-If tiller is already installed but helm client is not initialized, you can simply run the following:
-
-```sh
-export TILLER_NAMESPACE=tiller
 helm init --client-only
 ```
+
+---
+**NOTE:**
+> Unless `helm 3` is released without tiller server, we will use `helm 2` without `tiller` by applying the result of `helm template` with `kubectl apply`.
+> Check https://jenkins-x.io/news/helm-without-tiller/ to see what it matters.
+---
 
 ### CI/CD project
 
@@ -110,4 +98,5 @@ The rest of this documentation assumes you run command in the project cicd. To e
 1. [Jenkins](https://github.com/arnaud-deprez/jenkins-docker-openshift)
 1. [Nexus 3](https://github.com/arnaud-deprez/nexus3-docker)
 1. [SonarQube](https://github.com/arnaud-deprez/sonarqube-docker)
-1. [Selenium Grid](https://github.com/arnaud-deprez/selenium-grid-docker)
+1. [Selenium Grid](./charts/selenium)
+1. [Chart museum](./charts/chartmuseum)

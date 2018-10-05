@@ -7,6 +7,3 @@
 [submodule "sonarqube-docker"]
 	path = sonarqube-docker
 	url = https://github.com/arnaud-deprez/sonarqube-docker.git
-[submodule "selenium-grid-docker"]
-	path = selenium-grid-docker
-	url = https://github.com/arnaud-deprez/selenium-grid-docker.git
