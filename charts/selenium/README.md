@@ -18,7 +18,7 @@ Once it is done, you can run the following:
 
 ```sh
 # fetch template
-helm fetch --untar --untardir build --repo https://kubernetes-charts.storage.googleapis.com --version 0.11.0 selenium
+helm fetch --untar --destination build --repo https://kubernetes-charts.storage.googleapis.com --version 0.11.0 selenium
 # deploy
 helm template --name selenium -f charts/selenium/values.yaml --set hub.ingress.enabled=true --set hub.ingress.hosts={"<ingress_hostname>"} build/selenium | oc apply -f -
 ```

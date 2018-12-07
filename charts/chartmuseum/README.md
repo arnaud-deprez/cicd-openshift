@@ -7,7 +7,7 @@ Please also see https://github.com/kubernetes-helm/chartmuseum
 
 ```sh
 # fetch template
-helm fetch --untar --untardir build --repo https://kubernetes-charts.storage.googleapis.com --version 1.6.2 chartmuseum
+helm fetch --untar --destination build --repo https://kubernetes-charts.storage.googleapis.com --version 1.6.2 chartmuseum
 # deploy
 helm template --name chartmuseum -f charts/chartmuseum/values.yaml build/chartmuseum | oc apply -f -
 ```
