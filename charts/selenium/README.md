@@ -7,9 +7,8 @@
 We will install the [Selenium grid]() using [docker-selenium](https://github.com/SeleniumHQ/docker-selenium) with [Helm](https://docs.helm.sh) (aka The package manager for Kubernetes).
 To install `helm cli`, please follow the guideline [here](https://github.com/arnaud-deprez/cicd-openshift/blob/master/README.md).
 
-**NOTE**
-
 ---
+**NOTE**
 > Since docker-selenium `3.14.0-helium`, the docker images are fully compliant with openshift rules and can run as non root user.
 > So there is no need to extend these images anymore and they can be used as-is.
 ---
