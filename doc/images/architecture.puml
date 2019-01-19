@@ -27,8 +27,10 @@ cloud "openshift-cluster" {
         - Jenkins
         - Nexus
         - SonarQube
+        - Zalenium (Selenium grid)
         - Charts museum
         - Monocular
+        - ... (any other useful CI/CD tools)
     ]
     rectangle dev
     rectangle staging

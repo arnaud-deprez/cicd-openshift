@@ -1,0 +1,7 @@
+hub:
+  tag: "3.141.59g"
+
+persistence:
+  video:
+    enabled: true
+    size: 10Gi
